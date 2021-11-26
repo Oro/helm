@@ -73,6 +73,7 @@ service:
   # If not set, a name is generated using the fullname template
   name: ""
   annotations: {}
+  create: true
 
 serviceAccount:
   create: false
