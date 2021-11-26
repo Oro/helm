@@ -21,7 +21,7 @@ spec:
     matchLabels:
         app.kubernetes.io/instance: {{ .Release.Name | quote }}
         {{- if .Values.isClusterService }}
-        k8s-app: {{ .Chart.Name | quote }}
+        k8s-app: {{ default ( .Chart.Name | quote ) (index (.Values.deployment) "k8s-app" | quote ) }}
         {{- end }}
         app.kubernetes.io/name: {{ template "coredns.name" . }}
 {{ toYaml .Values.podDisruptionBudget | indent 2 }}

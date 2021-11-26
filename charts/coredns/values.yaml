@@ -307,3 +307,6 @@ autoscaler:
 deployment:
   enabled: true
   name: ""
+  # Allow explicit overriding of the k8s-app label in the podspec
+  # needed when using GKE as there the kube-dns service is immutable and needs this exact label set
+  # k8s-app: kube-dns
